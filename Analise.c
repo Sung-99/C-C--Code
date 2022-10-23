@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main()
-{
+{//...
     FILE *fp = fopen("analise.txt", "r");
     char str[30];
     int Sequec = 0,*PWUnordered,*auxx,ContSeg2 = 0,*vetMatL2,*vetMatL1,ContaVetDiff = 1,x = 0, **M, y= 0, cont = 0, *P, aux, *PAux, ContRepetid = 0, *PWithoutDuplicate,PwCont2 = 0, PwCont = 0;
