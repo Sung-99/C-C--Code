@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+/*-- A imagem para melhor entendimento do exercicio vai estar logo abaixo, na pasta de imagensExercicios com o nome ExercicioDosSegmentos*/ 
 int main()
 {//...
     FILE *fp = fopen("analise.txt", "r");//Open my file named "analise"
