@@ -3,29 +3,30 @@
 
 int main()
 {//...
-    FILE *fp = fopen("analise.txt", "r");
-    char str[30];
-    int Sequec = 0,*PWUnordered,*auxx,ContSeg2 = 0,*vetMatL2,*vetMatL1,ContaVetDiff = 1,x = 0, **M, y= 0, cont = 0, *P, aux, *PAux, ContRepetid = 0, *PWithoutDuplicate,PwCont2 = 0, PwCont = 0;
+    FILE *fp = fopen("analise.txt", "r");//Open my file named "analise"
+    //char str[30];//variable to read a input in case the name of the file above was not given
+    int Sequec = 0,*PWUnordered,*auxx,ContSeg2 = 0,*vetMatL2,*vetMatL1,ContaVetDiff = 1, **M, y= 0, cont = 0, *P, aux, *PAux, ContRepetid = 0, *PWithoutDuplicate,PwCont2 = 0, PwCont = 0;
     
-    printf("Digite o nome do arquivo: ");
-    scanf("%s",str);
-    if (!(fp = fopen(str,"r"))){ //Caso ocorra algum erro na abertura do arquivo
+  //  printf("Digite o nome do arquivo: ");
+  //  scanf("%s",str);
+    if (!(fp = fopen(str,"r"))){ //In case of any error 
         printf("Erro! Impossivel abrir o arquivo!\n");
         return 0;
-    }   
-    fscanf(fp,"%i",&x);                	      
+    }  
+    int tamanho; 
+    fscanf(fp,"%i",&tamanho);                	      
     	       		
-    	       PAux = (int *) malloc(x * sizeof(int *));//Vet auxiliar para ordenar
-    	       auxx = (int *) malloc(x * sizeof(int *));//Vet auxiliar para pegar os elementos desordenados porem sem repetidos
-    	         P = (int *) malloc(x * sizeof(int *));	//Vetor principal	
+    	       PAux = (int *) malloc(tamanho * sizeof(int *));//Vet auxiliar para ordenar
+    	       auxx = (int *) malloc(tamanho * sizeof(int *));//Vet auxiliar para pegar os elementos desordenados porem sem repetidos
+    	         P = (int *) malloc(tamanho * sizeof(int *));	//Vetor principal	
     while((fscanf(fp,"%i",&y)) == 1){//Lendo a primeira linha do arquivo
     		P[cont] = y;
     		cont++;
     }
     fclose(fp);      //FECHA O ARQUIVO
     
-    for(int l = 0; l < x; l++){
-      for(int c = l+1 ; c < x; c++){
+    for(int l = 0; l < tamanho; l++){
+      for(int c = l+1 ; c < tamanho; c++){
       		if(P[l] == P[c]){//Quero um vetor sem elementos repetidos n + 1 exemplo: 1 1 5 3 2 1 5 6 5 5 resultando 1 5 3 2 1 5 6 5 essa contavetdiff soma para ver quantos estao assim, para posteriormente eu retira-los do vetor. Ele NÃO BUSCA REMOVER REPETIDOS EM TD O VETOR, mas sim repetidos em sequencia
       			l++;	
       		}else{
@@ -37,12 +38,12 @@ int main()
     	}
     }
 
-     for(int l = 0; l < x; l++){//Atribuindo o vetor original ao vetor auxiliar para tirar os repetidos, porem sem ordenar
+     for(int l = 0; l < tamanho; l++){//Atribuindo o vetor original ao vetor auxiliar para tirar os repetidos, porem sem ordenar
       			 	
       			*(auxx+l) = *(P+l);
     }
-    for(int l = 0; l < x; l++){
-     	for(int c = l+1; c < x; c++){
+    for(int l = 0; l < tamanho; l++){
+     	for(int c = l+1; c < tamanho; c++){
       			if(auxx[l] == auxx[c]){//Somando os repetidos para remover essa quantia da soma total de elementos
       				l++;
       				ContRepetid++;	
@@ -52,11 +53,11 @@ int main()
       	}      	
       				 	
      }
-     PWUnordered = (int *) malloc((x-ContRepetid) * sizeof(int *));//Alocando meu vetor auxiliar nao ordenado com a quantia total do meu vetor original - a quantidade de repetidos, resultando em um vetor sem repetidos
-     for(int l = 0; l < x; l++){
+     PWUnordered = (int *) malloc((tamanho-ContRepetid) * sizeof(int *));//Alocando meu vetor auxiliar nao ordenado com a quantia total do meu vetor original - a quantidade de repetidos, resultando em um vetor sem repetidos
+     for(int l = 0; l < tamanho; l++){
   	
   			
-     	for(int c = l+1; c < x; c++){
+     	for(int c = l+1; c < tamanho; c++){
       			if(*(auxx+l) ==  auxx[c]){
       				
       				l++;
@@ -67,17 +68,17 @@ int main()
       				l++;      				
       			}     			     					
       	}
-      	if(l == x-1){
+      	if(l == tamanho-1){
   		PWUnordered[PwCont2] = auxx[l];//como ele incrementa meu l sempre que encontra um repetido, caso meus ultimos elementos sejam repetidos, ele nao vai pegar, por isso quando ele estiver no ultimo elemento, ele vai atribuir a ultima posição do meu vetor 	
   		
   	}
       	    						 	
      }
-    for(int l = 0; l < x; l++){
+    for(int l = 0; l < tamanho; l++){
       			*(PAux+l) = *(P+l);//Alocando a outro auxiliar, porem dessa vez para ordenalos
       			 	
     }	
-    for(int l = 0; l < x; l++){
+    for(int l = 0; l < tamanho; l++){
       for(int c = l+1 ; c < x; c++){
       		if(PAux[l] > PAux[c]){//Ordenação
       			aux = *(PAux+l);
@@ -90,8 +91,8 @@ int main()
     	}
     }
     ContRepetid = 0;//Para nao criar mais variaveis vou reutiliza-la. Para que ela não venha com a quantia realizada anteriormente, preciso zera-la
-     for(int l = 0; l < x; l++){
-     	for(int c = l+1; c < x; c++){
+     for(int l = 0; l < tamanho; l++){
+     	for(int c = l+1; c < tamanho; c++){
       			if(PAux[l] == PAux[c]){//Retirando os repetidos, porem dessa vez ordenando-os
       				l++;
       				ContRepetid++;	
@@ -102,11 +103,11 @@ int main()
       				 	
      }
 
-     PWithoutDuplicate = (int *) malloc((x-ContRepetid) * sizeof(int *));//alocando meu vetor de elementos ordenados, mas sem repetições
+     PWithoutDuplicate = (int *) malloc((tamanho-ContRepetid) * sizeof(int *));//alocando meu vetor de elementos ordenados, mas sem repetições
      for(int l = 0; l < x; l++){
   	
   			
-     	for(int c = l+1; c < x; c++){
+     	for(int c = l+1; c < tamanho; c++){
       			if(*(PAux+l) ==  PAux[c]){
       				
       				l++;     				      			     			
@@ -117,7 +118,7 @@ int main()
       			}
       			     					
       	}
-      	if(l == x-1){
+      	if(l == tamanho-1){
   		PWithoutDuplicate[PwCont] = PAux[l]; 	
   		
   	}
@@ -140,9 +141,9 @@ int main()
    ContSeg2=0;
    int p = 0, cc = 0;      
    for(int c = 0; c < PwCont2+1; c++){//Somar a quantidade de vezes que o elemento aparece sequencialmente
-    	for(int h = p; h < x; h++){
+    	for(int h = p; h < tamanho; h++){
     		cc = h;
-    		while(PWUnordered[c] == P[cc] && p < x && cc < x){
+    		while(PWUnordered[c] == P[cc] && p < tamanho && cc < tamanho){
     			Sequec =Sequec+1;//Somando os pesos
     			p++;
     			cc++;
