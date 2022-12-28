@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-
+ /*----In imageexercises will be found a picture of exercise and thus will be easier to understand-*/
 
 int main()
 {
