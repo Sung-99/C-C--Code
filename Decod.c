@@ -3,7 +3,8 @@
 #include <math.h>
 #include <string.h>
 #include <stdbool.h>
-
+/*---Find the explanation of the exercise on ImageExercises DecodPart1, 2 and 3
+*/
 int BinToDec(char *h);
 void TirandoCharExtra(char *h,int x);
 void Rotacionanco(char *h, int b);
