@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-
+ /*-- A imagem para melhor entendimento do exercicio vai estar logo abaixo, na pasta de imagensExercicios com o nome FindbestBox*/ 
 
 int main()
 {

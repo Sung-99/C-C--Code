@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+/* -- will not be needed a image to explain this exercise, is a simple converting decimal to bit */
 void dec2bin(int dec)
 {
 if(dec >= 1){
