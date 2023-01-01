@@ -1,4 +1,5 @@
 #include<stdio.h>
+/*---Recursion excercise Greater commom divisor--*/
 int mdc(int a, int b){
  if(a > b){
 	if(b == 1){
