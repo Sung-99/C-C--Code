@@ -1,4 +1,5 @@
 #include<stdio.h>
+/*---Power exercise with recursion---*/
 int mult(int base, int exp){
  if(exp > 1){ 	
  	exp = exp - 1;
