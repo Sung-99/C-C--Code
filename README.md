@@ -18,7 +18,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-
+![C][C-Shield]
 ![Projeto][Projeto-shield]
 ![Dedicação][Dedicação-shield]
 ![Fóco][Fóco-shield]
@@ -72,7 +72,7 @@ Vitor Hugo Mota Soares
 
 
 
-
+[C-Shield]:https://img.shields.io/badge/%20--Blue?style=for-the-badge&logo=C&logoColor=black&labelColor=purple
 [Fóco-shield]: https://img.shields.io/badge/F%C3%B3co--silver?style=for-the-badge&logoColor=white&labelColor=orange
 [Dedicação-shield]:https://img.shields.io/badge/Dedica%C3%A7%C3%A3o--red?style=for-the-badge&logoColor=white&labelColor=Navy%20blue
 [Projeto-shield]: https://img.shields.io/badge/Projeto--red?style=for-the-badge&logoColor=white&labelColor=silver
