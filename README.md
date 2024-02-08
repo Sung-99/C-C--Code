@@ -37,7 +37,8 @@
 
 ####  Linguagens usadas e Softwares
 
--C<br>
+-C
+
 -VsCode
 
 ####  Sistema operacional
